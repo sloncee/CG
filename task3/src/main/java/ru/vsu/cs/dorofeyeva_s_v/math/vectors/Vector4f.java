@@ -57,7 +57,10 @@ public class Vector4f {
         return this;
     }
 
-    public Vector4f divideByScalar(float scalar) {
+    public Vector4f divideByScalar(float scalar) throws ArithmeticException {
+        if (scalar == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
         this.x /= scalar;
         this.y /= scalar;
         this.z /= scalar;
@@ -69,11 +72,15 @@ public class Vector4f {
         return (float) Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
     }
 
-    public Vector4f normalize() {
-        return this.divideByScalar(getLength());
+    public Vector4f normalize() throws ArithmeticException {
+        float length = getLength();
+        if (length == 0) {
+            throw new ArithmeticException("Cannot normalize a vector with zero length.");
+        }
+        return this.divideByScalar(length);
     }
 
-    public float findScalarProduct(Vector4f vector4f) {
+    public float scalarProduct(Vector4f vector4f) {
         return this.x * vector4f.getX() + this.y * vector4f.getY() + this.z * vector4f.getZ() + this.w * vector4f.getW();
     }
 }

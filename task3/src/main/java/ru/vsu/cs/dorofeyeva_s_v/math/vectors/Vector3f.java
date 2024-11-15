@@ -51,7 +51,10 @@ public class Vector3f {
         return this;
     }
 
-    public Vector3f divideByScalar(float scalar) {
+    public Vector3f divideByScalar(float scalar) throws ArithmeticException {
+        if (scalar == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
         this.x /= scalar;
         this.y /= scalar;
         this.z /= scalar;
@@ -62,8 +65,12 @@ public class Vector3f {
         return (float) Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
     }
 
-    public Vector3f normalize() {
-        return this.divideByScalar(getLength());
+    public Vector3f normalize() throws ArithmeticException {
+        float length = getLength();
+        if (length == 0) {
+            throw new ArithmeticException("Cannot normalize a vector with zero length.");
+        }
+        return this.divideByScalar(length);
     }
 
     public float scalarProduct(Vector3f vector3f) {

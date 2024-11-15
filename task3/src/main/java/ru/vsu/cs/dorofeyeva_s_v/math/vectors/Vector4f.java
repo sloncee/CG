@@ -1,0 +1,79 @@
+package ru.vsu.cs.dorofeyeva_s_v.math.vectors;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Vector4f {
+    private float x;
+    private float y;
+    private float z;
+    private float w;
+    private final float EPS = 1e-7f;
+
+    public Vector4f(float x, float y, float z, float w) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+        this.w = w;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+        Vector4f vector4f = (Vector4f) o;
+        return Math.abs(this.x - vector4f.getX()) < EPS
+                && Math.abs(this.y - vector4f.getY()) < EPS
+                && Math.abs(this.z - vector4f.getZ()) < EPS
+                && Math.abs(this.w - vector4f.getW()) < EPS;
+    }
+
+    public Vector4f add(Vector4f vector4f) {
+        this.x += vector4f.getX();
+        this.y += vector4f.getY();
+        this.z += vector4f.getZ();
+        this.w += vector4f.getW();
+        return this;
+    }
+
+    public Vector4f subtract(Vector4f vector4f) {
+        this.x -= vector4f.getX();
+        this.y -= vector4f.getY();
+        this.z -= vector4f.getZ();
+        this.w -= vector4f.getW();
+        return this;
+    }
+
+    public Vector4f multiplyByScalar(float scalar) {
+        this.x *= scalar;
+        this.y *= scalar;
+        this.z *= scalar;
+        this.w *= scalar;
+        return this;
+    }
+
+    public Vector4f divideByScalar(float scalar) {
+        this.x /= scalar;
+        this.y /= scalar;
+        this.z /= scalar;
+        this.w /= scalar;
+        return this;
+    }
+
+    public float getLength() {
+        return (float) Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z + this.w * this.w);
+    }
+
+    public Vector4f normalize() {
+        return this.divideByScalar(getLength());
+    }
+
+    public float findScalarProduct(Vector4f vector4f) {
+        return this.x * vector4f.getX() + this.y * vector4f.getY() + this.z * vector4f.getZ() + this.w * vector4f.getW();
+    }
+}

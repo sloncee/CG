@@ -1,0 +1,74 @@
+package ru.vsu.cs.dorofeyeva_s_v.math.vectors;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Vector3f {
+    private float x;
+    private float y;
+    private float z;
+    private final float EPS = 1e-7f;
+
+    public Vector3f(float x, float y, float z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || this.getClass() != o.getClass()) {
+            return false;
+        }
+        Vector3f vector3f = (Vector3f) o;
+        return Math.abs(this.x - vector3f.getX()) < EPS
+                && Math.abs(this.y - vector3f.getY()) < EPS
+                && Math.abs(this.z - vector3f.getZ()) < EPS;
+    }
+
+    public Vector3f add(Vector3f vector3f) {
+        this.x += vector3f.getX();
+        this.y += vector3f.getY();
+        this.z += vector3f.getZ();
+        return this;
+    }
+
+    public Vector3f subtract(Vector3f vector3f) {
+        this.x -= vector3f.getX();
+        this.y -= vector3f.getY();
+        this.z -= vector3f.getZ();
+        return this;
+    }
+
+    public Vector3f multiplyByScalar(float scalar) {
+        this.x *= scalar;
+        this.y *= scalar;
+        this.z *= scalar;
+        return this;
+    }
+
+    public Vector3f divideByScalar(float scalar) {
+        this.x /= scalar;
+        this.y /= scalar;
+        this.z /= scalar;
+        return this;
+    }
+
+    public float getLength() {
+        return (float) Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+    }
+
+    public Vector3f normalize() {
+        return this.divideByScalar(getLength());
+    }
+
+    public float scalarProduct(Vector3f vector3f) {
+        return this.x * vector3f.getX() + this.y * vector3f.getY() + this.z * vector3f.getZ();
+    }
+
+    //добавить векторное произведение, когда будут готовы классы матриц
+}

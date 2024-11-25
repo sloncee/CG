@@ -11,6 +11,11 @@ public class Vector3f {
     private float z;
     private final float EPS = 1e-7f;
 
+    public Vector3f() {
+        this.x = Float.parseFloat(null);
+        this.y = Float.parseFloat(null);
+        this.z = Float.parseFloat(null);
+    }
     public Vector3f(float x, float y, float z) {
         this.x = x;
         this.y = y;

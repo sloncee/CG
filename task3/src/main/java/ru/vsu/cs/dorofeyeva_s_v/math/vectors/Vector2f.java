@@ -10,6 +10,11 @@ public class Vector2f {
     private float y;
     private final float EPS = 1e-7f;
 
+    public Vector2f() {
+        this.x = Float.parseFloat(null);
+        this.y = Float.parseFloat(null);
+    }
+
     public Vector2f(float x, float y) {
         this.x = x;
         this.y = y;

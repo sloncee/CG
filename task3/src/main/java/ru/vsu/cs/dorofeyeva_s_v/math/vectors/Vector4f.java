@@ -12,6 +12,12 @@ public class Vector4f {
     private float w;
     private final float EPS = 1e-7f;
 
+    public Vector4f() {
+        this.x = Float.parseFloat(null);
+        this.y = Float.parseFloat(null);
+        this.z = Float.parseFloat(null);
+        this.w = Float.parseFloat(null);
+    }
     public Vector4f(float x, float y, float z, float w) {
         this.x = x;
         this.y = y;

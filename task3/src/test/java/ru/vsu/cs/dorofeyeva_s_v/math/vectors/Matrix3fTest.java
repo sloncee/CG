@@ -44,5 +44,12 @@ public class Matrix3fTest {
         Matrix3f result = m1.transpose();
         assertEquals(new Matrix3f(new Vector3f(1, 4, 7), new Vector3f(2, 5,8), new Vector3f(3,6,9)), result);
     }
+
+    @Test
+    public void testDeterminant() {
+        Matrix3f m1 = new Matrix3f(new Vector3f(1, 2, 3), new Vector3f(4, 5, 6), new Vector3f(7, 8, 9));
+        float result = m1.determinant();
+        assertEquals(0f, result);
+    }
 }
 

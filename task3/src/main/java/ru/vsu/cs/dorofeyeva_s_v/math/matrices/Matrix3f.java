@@ -106,4 +106,14 @@ public class Matrix3f {
 
         return new Matrix3f(v1Result, v2Result, v3Result);
     }
+
+    public float determinant() {
+        return this.v1.getX() * this.v2.getY() * this.v3.getZ() +
+                this.v1.getY() * this.v2.getZ() * this.v3.getX() +
+                this.v2.getX() * this.v3.getY() * this.v1.getZ() -
+                this.v1.getZ() * this.v2.getY() * this.v3.getX() -
+                this.v1.getY() * this.v2.getX() * this.v3.getZ() -
+                this.v1.getX() * this.v2.getZ() * this.v3.getY();
+
+    }
 }

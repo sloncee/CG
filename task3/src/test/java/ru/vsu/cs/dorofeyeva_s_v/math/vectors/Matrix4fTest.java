@@ -45,4 +45,11 @@ public class Matrix4fTest {
         Matrix4f result = m1.transpose();
         assertEquals(new Matrix4f(new Vector4f(1, 5, 9, 13), new Vector4f(2, 6, 10, 14), new Vector4f(3, 7, 11, 15), new Vector4f(4, 8, 12, 16)), result);
     }
+
+    @Test
+    public void testDeterminant() {
+        Matrix4f m1 = new Matrix4f(new Vector4f(1, 2, 3, 4), new Vector4f(5, 6, 7, 8), new Vector4f(9, 10, 11, 12), new Vector4f(13, 14, 15, 16));
+        float result = m1.determinant();
+        assertEquals(0f, result);
+    }
 }

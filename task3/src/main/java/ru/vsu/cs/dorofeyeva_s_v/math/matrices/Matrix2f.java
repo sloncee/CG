@@ -3,7 +3,6 @@ package ru.vsu.cs.dorofeyeva_s_v.math.matrices;
 import lombok.Getter;
 import lombok.Setter;
 import ru.vsu.cs.dorofeyeva_s_v.math.vectors.Vector2f;
-import ru.vsu.cs.dorofeyeva_s_v.math.vectors.Vector3f;
 
 @Getter
 @Setter
@@ -83,5 +82,9 @@ public class Matrix2f {
         v2Result.setY(this.v2.getY());
 
         return new Matrix2f(v1Result, v2Result);
+    }
+
+    public float determinant() {
+        return this.v1.getX() * this.v2.getY() - this.v1.getY() * this.v2.getX();
     }
 }

@@ -2,6 +2,7 @@ package ru.vsu.cs.dorofeyeva_s_v.math.vectors;
 
 import org.junit.jupiter.api.Test;
 import ru.vsu.cs.dorofeyeva_s_v.math.matrices.Matrix2f;
+import ru.vsu.cs.dorofeyeva_s_v.math.matrices.Matrix3f;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -43,6 +44,13 @@ public class Matrix2fTest {
         Matrix2f m1 = new Matrix2f(new Vector2f(1, 2), new Vector2f(3, 4));
         Matrix2f result = m1.transpose();
         assertEquals(new Matrix2f(new Vector2f(1, 3), new Vector2f(2, 4)), result);
+    }
+
+    @Test
+    public void testDeterminant() {
+        Matrix2f m1 = new Matrix2f(new Vector2f(1, 2), new Vector2f(3, 4));
+        float result = m1.determinant();
+        assertEquals(-2f, result);
     }
 }
 

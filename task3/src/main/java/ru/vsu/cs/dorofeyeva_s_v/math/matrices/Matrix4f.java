@@ -2,6 +2,7 @@ package ru.vsu.cs.dorofeyeva_s_v.math.matrices;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.vsu.cs.dorofeyeva_s_v.math.vectors.Vector3f;
 import ru.vsu.cs.dorofeyeva_s_v.math.vectors.Vector4f;
 
 @Getter
@@ -132,5 +133,13 @@ public class Matrix4f {
         v4Result.setW(this.v4.getW());
 
         return new Matrix4f(v1Result, v2Result, v3Result, v4Result);
+    }
+
+    public float determinant() {
+        Matrix3f m1 = new Matrix3f(new Vector3f(this.v2.getY(), this.v2.getZ(), this.v2.getW()), new Vector3f(this.v3.getY(), this.v3.getZ(), this.v3.getW()), new Vector3f(this.v4.getY(), this.v4.getZ(), this.v4.getW()));
+        Matrix3f m2 = new Matrix3f(new Vector3f(this.v2.getX(), this.v2.getZ(), this.v2.getW()), new Vector3f(this.v3.getX(), this.v3.getZ(), this.v3.getW()), new Vector3f(this.v4.getX(), this.v4.getZ(), this.v4.getW()));
+        Matrix3f m3 = new Matrix3f(new Vector3f(this.v2.getX(), this.v2.getY(), this.v2.getW()), new Vector3f(this.v3.getX(), this.v3.getY(), this.v3.getW()), new Vector3f(this.v4.getX(), this.v4.getY(), this.v4.getW()));
+        Matrix3f m4 = new Matrix3f(new Vector3f(this.v2.getX(), this.v2.getZ(), this.v2.getZ()), new Vector3f(this.v3.getX(), this.v3.getZ(), this.v3.getZ()), new Vector3f(this.v4.getX(), this.v4.getZ(), this.v4.getZ()));
+        return this.v1.getX() * m1.determinant() - this.v1.getY() * m2.determinant() + this.v1.getZ() * m3.determinant() + this.v1.getW() * m4.determinant();
     }
 }

@@ -71,7 +71,7 @@ public class Matrix4f {
     }
 
     public Vector4f multiplyByVector(Vector4f vector4f) {
-        Vector4f result = new Vector4f(0, 0, 0, 0);
+        Vector4f result = new Vector4f();
         result.setX(this.v1.scalarProduct(vector4f));
         result.setY(this.v2.scalarProduct(vector4f));
         result.setZ(this.v3.scalarProduct(vector4f));
@@ -80,25 +80,25 @@ public class Matrix4f {
     }
 
     public Matrix4f multiplyByMatrix(Matrix4f matrix4f) {
-        Vector4f v1Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v1Result = new Vector4f();
         v1Result.setX(this.v1.scalarProduct(new Vector4f(matrix4f.getV1().getX(), matrix4f.getV2().getX(), matrix4f.getV3().getX(), matrix4f.getV4().getX())));
         v1Result.setY(this.v1.scalarProduct(new Vector4f(matrix4f.getV1().getY(), matrix4f.getV2().getY(), matrix4f.getV3().getY(), matrix4f.getV4().getY())));
         v1Result.setZ(this.v1.scalarProduct(new Vector4f(matrix4f.getV1().getZ(), matrix4f.getV2().getZ(), matrix4f.getV3().getZ(), matrix4f.getV4().getZ())));
         v1Result.setW(this.v1.scalarProduct(new Vector4f(matrix4f.getV1().getW(), matrix4f.getV2().getW(), matrix4f.getV3().getW(), matrix4f.getV4().getW())));
 
-        Vector4f v2Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v2Result = new Vector4f();
         v2Result.setX(this.v2.scalarProduct(new Vector4f(matrix4f.getV1().getX(), matrix4f.getV2().getX(), matrix4f.getV3().getX(), matrix4f.getV4().getX())));
         v2Result.setY(this.v2.scalarProduct(new Vector4f(matrix4f.getV1().getY(), matrix4f.getV2().getY(), matrix4f.getV3().getY(), matrix4f.getV4().getY())));
         v2Result.setZ(this.v2.scalarProduct(new Vector4f(matrix4f.getV1().getZ(), matrix4f.getV2().getZ(), matrix4f.getV3().getZ(), matrix4f.getV4().getZ())));
         v2Result.setW(this.v2.scalarProduct(new Vector4f(matrix4f.getV1().getW(), matrix4f.getV2().getW(), matrix4f.getV3().getW(), matrix4f.getV4().getW())));
 
-        Vector4f v3Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v3Result = new Vector4f();
         v3Result.setX(this.v3.scalarProduct(new Vector4f(matrix4f.getV1().getX(), matrix4f.getV2().getX(), matrix4f.getV3().getX(), matrix4f.getV4().getX())));
         v3Result.setY(this.v3.scalarProduct(new Vector4f(matrix4f.getV1().getY(), matrix4f.getV2().getY(), matrix4f.getV3().getY(), matrix4f.getV4().getY())));
         v3Result.setZ(this.v3.scalarProduct(new Vector4f(matrix4f.getV1().getZ(), matrix4f.getV2().getZ(), matrix4f.getV3().getZ(), matrix4f.getV4().getZ())));
         v3Result.setW(this.v3.scalarProduct(new Vector4f(matrix4f.getV1().getW(), matrix4f.getV2().getW(), matrix4f.getV3().getW(), matrix4f.getV4().getW())));
 
-        Vector4f v4Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v4Result = new Vector4f();
         v4Result.setX(this.v4.scalarProduct(new Vector4f(matrix4f.getV1().getX(), matrix4f.getV2().getX(), matrix4f.getV3().getX(), matrix4f.getV4().getX())));
         v4Result.setY(this.v4.scalarProduct(new Vector4f(matrix4f.getV1().getY(), matrix4f.getV2().getY(), matrix4f.getV3().getY(), matrix4f.getV4().getY())));
         v4Result.setZ(this.v4.scalarProduct(new Vector4f(matrix4f.getV1().getZ(), matrix4f.getV2().getZ(), matrix4f.getV3().getZ(), matrix4f.getV4().getZ())));
@@ -108,25 +108,25 @@ public class Matrix4f {
     }
 
     public Matrix4f transpose() {
-        Vector4f v1Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v1Result = new Vector4f();
         v1Result.setX(this.v1.getX());
         v1Result.setY(this.v2.getX());
         v1Result.setZ(this.v3.getX());
         v1Result.setW(this.v4.getX());
 
-        Vector4f v2Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v2Result = new Vector4f();
         v2Result.setX(this.v1.getY());
         v2Result.setY(this.v2.getY());
         v2Result.setZ(this.v3.getY());
         v2Result.setW(this.v4.getY());
 
-        Vector4f v3Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v3Result = new Vector4f();
         v3Result.setX(this.v1.getZ());
         v3Result.setY(this.v2.getZ());
         v3Result.setZ(this.v3.getZ());
         v3Result.setW(this.v4.getZ());
 
-        Vector4f v4Result = new Vector4f(0, 0, 0, 0);
+        Vector4f v4Result = new Vector4f();
         v4Result.setX(this.v1.getW());
         v4Result.setY(this.v2.getW());
         v4Result.setZ(this.v3.getW());

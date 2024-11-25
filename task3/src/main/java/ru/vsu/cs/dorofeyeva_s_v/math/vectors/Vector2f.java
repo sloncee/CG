@@ -11,8 +11,8 @@ public class Vector2f {
     private final float EPS = 1e-7f;
 
     public Vector2f() {
-        this.x = Float.parseFloat(null);
-        this.y = Float.parseFloat(null);
+        this.x = 0;
+        this.y = 0;
     }
 
     public Vector2f(float x, float y) {
@@ -51,7 +51,7 @@ public class Vector2f {
     }
 
     public Vector2f divideByScalar(float scalar) throws ArithmeticException {
-        if (scalar == 0) {
+        if (Math.abs(scalar) < EPS) {
             throw new ArithmeticException("Division by zero is not allowed.");
         }
         this.x /= scalar;
@@ -65,7 +65,7 @@ public class Vector2f {
 
     public Vector2f normalize() throws ArithmeticException {
         float length = getLength();
-        if (length == 0) {
+        if (Math.abs(length) < EPS) {
             throw new ArithmeticException("Cannot normalize a vector with zero length.");
         }
         return this.divideByScalar(length);

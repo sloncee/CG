@@ -13,10 +13,10 @@ public class Vector4f {
     private final float EPS = 1e-7f;
 
     public Vector4f() {
-        this.x = Float.parseFloat(null);
-        this.y = Float.parseFloat(null);
-        this.z = Float.parseFloat(null);
-        this.w = Float.parseFloat(null);
+        this.x = 0;
+        this.y = 0;
+        this.z = 0;
+        this.w = 0;
     }
     public Vector4f(float x, float y, float z, float w) {
         this.x = x;
@@ -64,7 +64,7 @@ public class Vector4f {
     }
 
     public Vector4f divideByScalar(float scalar) throws ArithmeticException {
-        if (scalar == 0) {
+        if (Math.abs(scalar) < EPS) {
             throw new ArithmeticException("Division by zero is not allowed.");
         }
         this.x /= scalar;
@@ -80,7 +80,7 @@ public class Vector4f {
 
     public Vector4f normalize() throws ArithmeticException {
         float length = getLength();
-        if (length == 0) {
+        if (Math.abs(length) < EPS) {
             throw new ArithmeticException("Cannot normalize a vector with zero length.");
         }
         return this.divideByScalar(length);

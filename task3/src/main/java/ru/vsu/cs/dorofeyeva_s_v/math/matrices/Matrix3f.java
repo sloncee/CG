@@ -62,7 +62,7 @@ public class Matrix3f {
     }
 
     public Vector3f multiplyByVector(Vector3f vector3f) {
-        Vector3f result = new Vector3f(0, 0, 0);
+        Vector3f result = new Vector3f();
         result.setX(this.v1.scalarProduct(vector3f));
         result.setY(this.v2.scalarProduct(vector3f));
         result.setZ(this.v3.scalarProduct(vector3f));
@@ -70,17 +70,17 @@ public class Matrix3f {
     }
 
     public Matrix3f multiplyByMatrix(Matrix3f matrix3f) {
-        Vector3f v1Result = new Vector3f(0, 0, 0);
+        Vector3f v1Result = new Vector3f();
         v1Result.setX(this.v1.scalarProduct(new Vector3f(matrix3f.getV1().getX(), matrix3f.getV2().getX(), matrix3f.getV3().getX())));
         v1Result.setY(this.v1.scalarProduct(new Vector3f(matrix3f.getV1().getY(), matrix3f.getV2().getY(), matrix3f.getV3().getY())));
         v1Result.setZ(this.v1.scalarProduct(new Vector3f(matrix3f.getV1().getZ(), matrix3f.getV2().getZ(), matrix3f.getV3().getZ())));
 
-        Vector3f v2Result = new Vector3f(0, 0, 0);
+        Vector3f v2Result = new Vector3f();
         v2Result.setX(this.v2.scalarProduct(new Vector3f(matrix3f.getV1().getX(), matrix3f.getV2().getX(), matrix3f.getV3().getX())));
         v2Result.setY(this.v2.scalarProduct(new Vector3f(matrix3f.getV1().getY(), matrix3f.getV2().getY(), matrix3f.getV3().getY())));
         v2Result.setZ(this.v2.scalarProduct(new Vector3f(matrix3f.getV1().getZ(), matrix3f.getV2().getZ(), matrix3f.getV3().getZ())));
 
-        Vector3f v3Result = new Vector3f(0, 0, 0);
+        Vector3f v3Result = new Vector3f();
         v3Result.setX(this.v3.scalarProduct(new Vector3f(matrix3f.getV1().getX(), matrix3f.getV2().getX(), matrix3f.getV3().getX())));
         v3Result.setY(this.v3.scalarProduct(new Vector3f(matrix3f.getV1().getY(), matrix3f.getV2().getY(), matrix3f.getV3().getY())));
         v3Result.setZ(this.v3.scalarProduct(new Vector3f(matrix3f.getV1().getZ(), matrix3f.getV2().getZ(), matrix3f.getV3().getZ())));
@@ -89,17 +89,17 @@ public class Matrix3f {
     }
 
     public Matrix3f transpose() {
-        Vector3f v1Result = new Vector3f(0, 0, 0);
+        Vector3f v1Result = new Vector3f();
         v1Result.setX(this.v1.getX());
         v1Result.setY(this.v2.getX());
         v1Result.setZ(this.v3.getX());
 
-        Vector3f v2Result = new Vector3f(0, 0, 0);
+        Vector3f v2Result = new Vector3f();
         v2Result.setX(this.v1.getY());
         v2Result.setY(this.v2.getY());
         v2Result.setZ(this.v3.getY());
 
-        Vector3f v3Result = new Vector3f(0, 0, 0);
+        Vector3f v3Result = new Vector3f();
         v3Result.setX(this.v1.getZ());
         v3Result.setY(this.v2.getZ());
         v3Result.setZ(this.v3.getZ());

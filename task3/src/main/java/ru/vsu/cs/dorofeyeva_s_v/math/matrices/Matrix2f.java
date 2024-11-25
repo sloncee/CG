@@ -54,18 +54,18 @@ public class Matrix2f {
     }
 
     public Vector2f multiplyByVector(Vector2f vector2f) {
-        Vector2f result = new Vector2f(0, 0);
+        Vector2f result = new Vector2f();
         result.setX(this.v1.scalarProduct(vector2f));
         result.setY(this.v2.scalarProduct(vector2f));
         return result;
     }
 
     public Matrix2f multiplyByMatrix(Matrix2f matrix2f) {
-        Vector2f v1Result = new Vector2f(0, 0);
+        Vector2f v1Result = new Vector2f();
         v1Result.setX(this.v1.scalarProduct(new Vector2f(matrix2f.getV1().getX(), matrix2f.getV2().getX())));
         v1Result.setY(this.v1.scalarProduct(new Vector2f(matrix2f.getV1().getY(), matrix2f.getV2().getY())));
 
-        Vector2f v2Result = new Vector2f(0, 0);
+        Vector2f v2Result = new Vector2f();
         v2Result.setX(this.v2.scalarProduct(new Vector2f(matrix2f.getV1().getX(), matrix2f.getV2().getX())));
         v2Result.setY(this.v2.scalarProduct(new Vector2f(matrix2f.getV1().getY(), matrix2f.getV2().getY())));
 
@@ -73,11 +73,11 @@ public class Matrix2f {
     }
 
     public Matrix2f transpose() {
-        Vector2f v1Result = new Vector2f(0, 0);
+        Vector2f v1Result = new Vector2f();
         v1Result.setX(this.v1.getX());
         v1Result.setY(this.v2.getX());
 
-        Vector2f v2Result = new Vector2f(0, 0);
+        Vector2f v2Result = new Vector2f();
         v2Result.setX(this.v1.getY());
         v2Result.setY(this.v2.getY());
 

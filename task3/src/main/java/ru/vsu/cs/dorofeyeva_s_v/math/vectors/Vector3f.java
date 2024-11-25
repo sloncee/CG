@@ -2,6 +2,7 @@ package ru.vsu.cs.dorofeyeva_s_v.math.vectors;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.vsu.cs.dorofeyeva_s_v.math.matrices.Matrix2f;
 
 @Getter
 @Setter
@@ -82,5 +83,13 @@ public class Vector3f {
         return this.x * vector3f.getX() + this.y * vector3f.getY() + this.z * vector3f.getZ();
     }
 
-    //добавить векторное произведение, когда будут готовы классы матриц
+    public Vector3f vectorProduct(Vector3f vector3f) {
+        Vector3f i = new Vector3f(1, 0, 0);
+        Vector3f j = new Vector3f(0, 1, 0);
+        Vector3f k = new Vector3f(0, 0, 1);
+        Matrix2f m1 = new Matrix2f(new Vector2f(this.y, this.z), new Vector2f(vector3f.getY(), vector3f.getZ()));
+        Matrix2f m2 = new Matrix2f(new Vector2f(this.x, this.z), new Vector2f(vector3f.getX(), vector3f.getZ()));
+        Matrix2f m3 = new Matrix2f(new Vector2f(this.x, this.y), new Vector2f(vector3f.getX(), vector3f.getY()));
+        return (i.multiplyByScalar(m1.determinant())).subtract(j.multiplyByScalar(m2.determinant())).add(k.multiplyByScalar(m3.determinant()));
+    }
 }

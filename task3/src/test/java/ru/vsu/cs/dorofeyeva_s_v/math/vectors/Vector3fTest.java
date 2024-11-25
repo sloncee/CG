@@ -72,4 +72,12 @@ class Vector3fTest {
         float result = v1.scalarProduct(v2);
         assertEquals(32f, result);
     }
+
+    @Test
+    public void testVectorProduction() {
+        Vector3f v1 = new Vector3f(1, 2, 3);
+        Vector3f v2 = new Vector3f(4, 5, 6);
+        Vector3f result = v1.vectorProduct(v2);
+        assertEquals(new Vector3f(-3, 6, -3), result);
+    }
 }

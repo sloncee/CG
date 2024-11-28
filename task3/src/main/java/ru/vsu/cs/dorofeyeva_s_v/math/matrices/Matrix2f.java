@@ -19,14 +19,22 @@ public class Matrix2f {
         this.v2 = v2;
     }
 
+    public Matrix2f(float[] matrix) throws IllegalArgumentException {
+        if (matrix.length != 4) {
+            throw new IllegalArgumentException("Length must be 4");
+        }
+        this.v1 = new Vector2f(matrix[0], matrix[1]);
+        this.v2 = new Vector2f(matrix[2], matrix[3]);
+    }
+
     public static Matrix2f unitMatrix2f() {
         return new Matrix2f(new Vector2f(1, 0),
                 new Vector2f(0, 1));
     }
 
     public static Matrix2f zeroMatrix2f() {
-        return new Matrix2f(new Vector2f(0, 0),
-                new Vector2f(0, 0));
+        return new Matrix2f(new Vector2f(),
+                new Vector2f());
     }
 
     public boolean equals(Object o) {

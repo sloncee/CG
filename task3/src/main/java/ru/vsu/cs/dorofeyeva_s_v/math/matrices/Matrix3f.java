@@ -2,6 +2,7 @@ package ru.vsu.cs.dorofeyeva_s_v.math.matrices;
 
 import lombok.Getter;
 import lombok.Setter;
+import ru.vsu.cs.dorofeyeva_s_v.math.vectors.Vector2f;
 import ru.vsu.cs.dorofeyeva_s_v.math.vectors.Vector3f;
 
 @Getter
@@ -22,6 +23,15 @@ public class Matrix3f {
         this.v3 = v3;
     }
 
+    public Matrix3f(float[] matrix) throws IllegalArgumentException {
+        if (matrix.length != 9) {
+            throw new IllegalArgumentException("Length must be 9");
+        }
+        this.v1 = new Vector3f(matrix[0], matrix[1], matrix[2]);
+        this.v2 = new Vector3f(matrix[3], matrix[4], matrix[5]);
+        this.v3 = new Vector3f(matrix[6], matrix[7], matrix[8]);
+    }
+
     public static Matrix3f unitMatrix3f() {
         return new Matrix3f(new Vector3f(1, 0, 0),
                 new Vector3f(0, 1, 0),
@@ -29,9 +39,9 @@ public class Matrix3f {
     }
 
     public static Matrix3f zeroMatrix3f() {
-        return new Matrix3f(new Vector3f(0, 0, 0),
-                new Vector3f(0, 0, 0),
-                new Vector3f(0, 0, 0));
+        return new Matrix3f(new Vector3f(),
+                new Vector3f(),
+                new Vector3f());
     }
 
     public boolean equals(Object o) {

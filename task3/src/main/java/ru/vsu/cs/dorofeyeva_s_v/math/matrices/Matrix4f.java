@@ -34,10 +34,20 @@ public class Matrix4f {
     }
 
     public static Matrix4f zeroMatrix4f() {
-        return new Matrix4f(new Vector4f(0, 0, 0, 0),
-                new Vector4f(0, 0, 0, 0),
-                new Vector4f(0, 0, 0, 0),
-                new Vector4f(0, 0, 0, 0));
+        return new Matrix4f(new Vector4f(),
+                new Vector4f(),
+                new Vector4f(),
+                new Vector4f());
+    }
+
+    public Matrix4f(float[] matrix) throws IllegalArgumentException {
+        if (matrix.length != 16) {
+            throw new IllegalArgumentException("Length must be 16");
+        }
+        this.v1 = new Vector4f(matrix[0], matrix[1], matrix[2], matrix[3]);
+        this.v2 = new Vector4f(matrix[4], matrix[5], matrix[6], matrix[7]);
+        this.v3 = new Vector4f(matrix[8], matrix[9], matrix[10], matrix[11]);
+        this.v4 = new Vector4f(matrix[12], matrix[13], matrix[14], matrix[15]);
     }
 
     public boolean equals(Object o) {

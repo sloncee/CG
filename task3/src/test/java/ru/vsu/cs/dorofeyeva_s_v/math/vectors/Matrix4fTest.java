@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 import ru.vsu.cs.dorofeyeva_s_v.math.matrices.Matrix4f;
 
 import static junit.framework.Assert.assertEquals;
-import static ru.vsu.cs.dorofeyeva_s_v.math.matrices.Matrix4f.unitMatrix4f;
+import static ru.vsu.cs.dorofeyeva_s_v.math.matrices.Matrix4f.unitMatrix;
 
 public class Matrix4fTest {
     @Test
     public void testAddition() {
         Matrix4f m1 = new Matrix4f(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
-        Matrix4f m2 = unitMatrix4f();
+        Matrix4f m2 = unitMatrix();
         Matrix4f result = m1.add(m2);
         assertEquals(new Matrix4f(new float[]{2, 2, 3, 4, 5, 7, 7, 8, 9, 10, 12, 12, 13, 14, 15, 17}), result);
     }
@@ -18,7 +18,7 @@ public class Matrix4fTest {
     @Test
     public void testSubtraction() {
         Matrix4f m1 = new Matrix4f(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
-        Matrix4f m2 = unitMatrix4f();
+        Matrix4f m2 = unitMatrix();
         Matrix4f result = m1.subtract(m2);
         assertEquals(new Matrix4f(new float[]{0, 2, 3, 4, 5, 5, 7, 8, 9, 10, 10, 12, 13, 14, 15, 15}), result);
     }
@@ -34,7 +34,7 @@ public class Matrix4fTest {
     @Test
     public void testMultiplicationByMatrix() {
         Matrix4f m1 = new Matrix4f(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16});
-        Matrix4f m2 = unitMatrix4f();
+        Matrix4f m2 = unitMatrix();
         Matrix4f result = m1.multiplyByMatrix(m2);
         assertEquals(new Matrix4f(new float[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}), result);
     }

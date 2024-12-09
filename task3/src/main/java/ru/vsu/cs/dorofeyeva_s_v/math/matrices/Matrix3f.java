@@ -32,13 +32,13 @@ public class Matrix3f {
         this.v3 = new Vector3f(matrix[6], matrix[7], matrix[8]);
     }
 
-    public static Matrix3f unitMatrix3f() {
+    public static Matrix3f unitMatrix() {
         return new Matrix3f(new Vector3f(1, 0, 0),
                 new Vector3f(0, 1, 0),
                 new Vector3f(0, 0, 1));
     }
 
-    public static Matrix3f zeroMatrix3f() {
+    public static Matrix3f zeroMatrix() {
         return new Matrix3f(new Vector3f(),
                 new Vector3f(),
                 new Vector3f());

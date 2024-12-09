@@ -27,12 +27,12 @@ public class Matrix2f {
         this.v2 = new Vector2f(matrix[2], matrix[3]);
     }
 
-    public static Matrix2f unitMatrix2f() {
+    public static Matrix2f unitMatrix() {
         return new Matrix2f(new Vector2f(1, 0),
                 new Vector2f(0, 1));
     }
 
-    public static Matrix2f zeroMatrix2f() {
+    public static Matrix2f zeroMatrix() {
         return new Matrix2f(new Vector2f(),
                 new Vector2f());
     }

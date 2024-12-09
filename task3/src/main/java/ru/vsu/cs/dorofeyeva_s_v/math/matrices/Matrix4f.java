@@ -26,14 +26,14 @@ public class Matrix4f {
         this.v4 = v4;
     }
 
-    public static Matrix4f unitMatrix4f() {
+    public static Matrix4f unitMatrix() {
         return new Matrix4f(new Vector4f(1, 0, 0, 0),
                 new Vector4f(0, 1, 0, 0),
                 new Vector4f(0, 0, 1, 0),
                 new Vector4f(0, 0, 0, 1));
     }
 
-    public static Matrix4f zeroMatrix4f() {
+    public static Matrix4f zeroMatrix() {
         return new Matrix4f(new Vector4f(),
                 new Vector4f(),
                 new Vector4f(),
